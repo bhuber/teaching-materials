@@ -380,7 +380,7 @@ header h1 {
   
   <div id="topinfo">
     
-    <span class="item nickname">pamela.fox</span> |
+    <span class="item nickname">Bennet Huber</span> |
     
     
     <a href="/set?id=ags1bGlkZS1tYWtlcnIQCxIIU2xpZGVTZXQYo51UDA">Edit Slideshow</a> |
@@ -426,7 +426,7 @@ header h1 {
      <section class="content"> 
      <p>A text-based command interpreter.</p>
 <p>The most common shell is "bash".</p>
-<img src="http://students.cs.byu.edu/~cs240ta/spring2012/tutorials/linux/terminal.png">
+<img src="terminal.png">
 <p>On Mac, use a shell via the "Terminal" app.</p>
      </section>
     </div>
@@ -511,9 +511,9 @@ myfile.txt
 <p>For more details, use <code>-l</code>, and to see hidden files, use <code-a</code>:
 <pre>
 username@hostname: ls -al
--rw-r--r--    16 pamelafox  staff      544 19 Mar 11:40 .dropbox
-drwxr-xr-x    16 pamelafox  staff      544 19 Mar 11:40 mydir/
--rw-r--r--    16 pamelafox  staff      544 19 Mar 11:40 myfile.txt
+-rw-r--r--    16 bhuber  staff      544 19 Mar 11:40 .dropbox
+drwxr-xr-x    16 bhuber  staff      544 19 Mar 11:40 mydir/
+-rw-r--r--    16 bhuber  staff      544 19 Mar 11:40 myfile.txt
 </pre>
 
      </section>
@@ -688,7 +688,7 @@ find . -name '*.txt' -print
 <p>You can use <code>&lt;</code> and <code>&gt;</code> to redirect input/output.</p>
 
 <p>Save results of search in a file:</p>
-<pre>grep hello *.txt > results.txt</pre>
+<pre>grep hello *.txt &lt; results.txt</pre>
      </section>
     </div>
     
@@ -718,7 +718,7 @@ find . -name '*.txt' -print
      <section class="content"> 
      <p>Use <code>history</code> to see your previous commands:</p>
 <pre>
-  564  grep 'jquery' *.txt > results.txt
+  564  grep 'jquery' *.txt &lt; results.txt
   565  vi results.txt 
   566* open -a TextEdit myfile.txt
   568  history
