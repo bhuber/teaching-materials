@@ -271,15 +271,21 @@ a {
 
 pre {
   text-align: left;
-  font-size: 80%;
+  font-size: 100%;
   padding: 10px 20px;
   background: rgba(255, 0, 0, 0.05);
   -webkit-border-radius: 8px;
   -khtml-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
-  bord3r: 1px solid rgba(255, 0, 0, 0.2);
+  border: 1px solid rgba(255, 0, 0, 0.2);
 }
+
+code {
+  background: rgba(255, 0, 0, 0.05);
+  font-size: 80%;
+}
+
 
 pre b {
   font-weight: normal;
@@ -442,7 +448,7 @@ header h1 {
 <pre>
 username@hostname:
 </pre>
-<p>To see what directory you're in, use the <code>pwd</code> command:
+<p>To see what directory you're in, use the <b>pwd</b> command:
 </p>
 <pre>username@hostname: pwd
 /Users/username/Desktop
@@ -605,19 +611,15 @@ rmdir myproject
     <div class="slide normal"> 
      <header><h1>Editing files</h1></header> 
      <section class="content"> 
-     <p>You can use various editors built into bash:
+     <p>You can use various editors built that typically appear on *nix systems:
 </p>
  <ul>
   <li><code>vi myfile.txt</code>
   <li><code>emacs myfile.txt</code>
-  <li><code>pico myfile.txt</code>
+  <li><code>nano myfile.txt</code>
 </ul>
-<p>Or (on Mac), you can open with any desktop app:</p>
-<pre>open -a TextEdit myfile.txt</pre>
-<p>With default editor:</p>
-<pre>open -t myfile.txt</pre>
-<p>With TextEdit:</p>
-<pre>open -e myfile.txt</pre>
+<p>
+If you're not familiar with vi or emacs use nano for now.  Note all the keyboard shortcuts are at the bottom of the screen and ^ stands for Control.
      </section>
     </div>
     
@@ -632,19 +634,75 @@ rmdir myproject
 </p>
 <ul>
   <li><code>cat myfile.txt</code>
-  <li><code>more myfile.txt</code>
   <li><code>less myfile.txt</code>
 </ul>
 <p>You can pass multiple files into any of them:</p>
-<pre> cat myfile.txt myfile2.txt myfile3.txt</pre>
+<pre>cat myfile.txt myfile2.txt myfile3.txt</pre>
 
      </section>
     </div>
     
    
+    <div class="slide normal"> 
+     <header><h1>Less is more</h1></header> 
+     <section class="content"> 
+       <p><code>less</code> is a very useful tool for examining large blocks of text.  Run the following commands:</p>
+       <pre>
+       cd /etc
+       ls -al
+       </pre>
+       <p>Now try <code>ls -al | less</code></p>
+
+     </section>
+    </div>
+
+    <div class="slide normal"> 
+     <header><h1>Less is more (continued)</h1></header> 
+     <section class="content"> 
+        <p>less is pretty simple and has mostly one-key navigation commands</p>
+        <ul>
+            <li><code>h</code> gives a list of them</li>
+            <li><code>q</code> quits</li>
+            <li><code>u</code> and <code>d</code> scroll up and down (Page Up, Page Down, Space, and Arrow keys work too)</li>
+            <li><code>/</code> is like CTRL-f in a web browser: you can search for text. <code>n</code> and <code>p</code> cycle through the results</li>
+        </ul>
     
+     </section>
+    </div>
+
+
+
+
+    <div class="slide normal"> 
+     <header><h1>HALP!</h1></header> 
+     <section class="content"> 
+     <p>
+         There are two primary sources for commands run in bash.
+         One of them is bash itself; type <code>help</code> to get a list of them, 
+         try <code>help cd</code> as an example
+     </p>
+     <p>
+        The rest are actually programs stored on the system.
+        The <code>which</code> command will tell you where they are;
+        type <code>which ls</code> to see where <code>ls</code> resides.
+     </p>
+     <p>
+        Help for system programs is stored in &quot;man pages&quot; (short for manual) and accessed using the <code>man</code> command.
+        Try the following commands to get a feel for it.  Note that <code>man</code> uses <code>less</code> to show man page contents.
+    </p>
+    <pre>
+        man ls
+        man man
+        man -k dns
+    </pre>
+
     
+     </section>
+    </div>
     
+
+
+
     <div class="slide normal"> 
      <header><h1>Searching files</h1></header> 
      <section class="content"> 
