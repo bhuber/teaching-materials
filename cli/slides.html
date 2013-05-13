@@ -445,19 +445,34 @@ header h1 {
      <header><h1>Shell prompt</h1></header> 
      <section class="content"> 
      <p>The prompt usually shows you your username and computer name:</p>
-<pre>
-username@hostname:
-</pre>
-<p>To see what directory you're in, use the <b>pwd</b> command:
-</p>
-<pre>username@hostname: pwd
-/Users/username/Desktop
-</pre>
+    <pre>
+        username@hostname:
+    </pre>
+     <p>
+         To see what directory you're in, use the <code>pwd</code> command:
+    </p>
+    <pre>
+        username@hostname: pwd
+        /Users/username/Desktop
+    </pre>
 
      </section>
     </div>
     
    
+    <div class="slide normal"> 
+     <header><h1>Run Away!  Run Away!</h1></header> 
+     <section class="content"> 
+     <p>To exit the shell, simply type &quot;exit&quot;.  Now start it up again!</p>
+     <p>
+     Type <code>sleep 5</code>.  Not too bad, only wasted five seconds of your valuable time.  
+     Now type <code>sleep 500</code>
+     </p>
+     <p>
+     Use <code>CTRL-C</code> to kill whatever is currently running if it's taking too long or it looks at you funny.  Use it now to kill the <code>sleep</code> command.
+     </p>
+     </section>
+    </div>
     
     
     
@@ -466,9 +481,9 @@ username@hostname:
      <section class="content"> 
      <p>A sequence of nested directories with a file or directory at the end, separated by "/":</p>
 <ul>
-  <li>Relative:
+    <li>Relative - pretend whatever <code>pwd</code> prints comes in front:
 <code>documents/fun/microsoft_jokes.html</code>
-  <li>Absolute:
+  <li>Absolute - always starts at the top, or &quot;Root&quot; of the file system:
 <code>/usr/bin/local</code>
   <li>Root: 
 <code>/</code>
@@ -482,9 +497,6 @@ username@hostname:
      </section>
     </div>
     
-   
-    
-    
     
     <div class="slide normal"> 
      <header><h1>Change directory</h1></header> 
@@ -496,13 +508,8 @@ cd mydirectory/
 <pre>
 cd ../
 </pre>
-
-
      </section>
     </div>
-    
-   
-    
     
     
     <div class="slide normal"> 
@@ -533,14 +540,20 @@ drwxr-xr-x    16 bhuber  staff      544 19 Mar 11:40 mydir/
      <header><h1>File Names</h1></header> 
      <section class="content"> 
      <ul>
- <li>case sensitive
- <li>any character (besides "/")
- <li>file extensions are for user convenience
-</ul>
+         <li>Case sensitive</li>
+         <li>Any character (besides "/")</li>
+         <li>File extensions are for user convenience</li>
+         <li>
+         Files with special characters (e.g. whitespace) can be put inside quotes.  
+         Or just don't make file names with whitespace in them.
+         </li>
+    </ul>
 
 <p>Examples:
 <pre>
-README   .bashrc   index.html    index.html.old    Bugs List.txt
+README   .bashrc   index.html    index.html.old    
+
+&quot;Bugs List.txt&quot;
 </pre>
 </p>
      </section>
@@ -551,7 +564,7 @@ README   .bashrc   index.html    index.html.old    Bugs List.txt
     
     
     <div class="slide normal"> 
-     <header><h1>Making &amp; deleting directories</h1></header> 
+     <header><h1>Making and deleting directories</h1></header> 
      <section class="content"> 
      <p>To make a new directory, use the <code>mkdir</code> command:</p>
 <pre>
@@ -592,26 +605,58 @@ rmdir myproject
      <header><h1>Working with files</h1></header> 
      <section class="content"> 
      <p>To make a file, use the <code>touch</code> command:</p>
-<pre>touch newfile.txt
-</pre>
-<p>To copy a file, use the <code>cp</code> command:
+<pre>touch newfile.txt</pre>
+     <p>To move or copy a file, use the <code>mv</code> and <code>cp</code> commands:</p>
 <pre>cp newfile.txt newerfile.txt</pre>
-<p>To move a file, use the <code>mv</code> command:
-<pre>cp newerfile.txt betterfilename.txt</pre>
-<p>To remove a file, use the <code>rm</code> command:
-<pre>rm betterfilename.txt</pre>
+     <p>To remove a file, use the <code>rm</code> command:</p>
+<pre>rm newerfile.txt</pre>
 
      </section>
     </div>
     
    
     
+    <div class="slide normal"> 
+     <header><h1>Save yourself some typing</h1></header> 
+     <section class="content"> 
+     <ul>
+         <li>The left/right arrow keys let you edit within a command.  CTRL-f and CTRL-b also work (forward/back).</li>
+         <li>The up/down arrow keys let you select previous commands.  CTRL-p and CTRL-n also work (previous/next).</li>
+         <li>CTRL-a goes to beginning of the line, CTRL-e to the end.</li>
+         <li>The tab auto-completes filenames.  Hit it twice for multiple results.</li>
+</ul>
+
+     </section>
+    </div>
+    
+    
+    
+    
+    <div class="slide normal"> 
+     <header><h1>Command Shortcuts</h1></header> 
+     <section class="content"> 
+     <p>use <code>history</code> to see your previous commands:</p>
+<pre>
+  564  grep 'jquery' *.txt &gt; results.txt
+  565  vi results.txt 
+  566* open -a textedit myfile.txt
+  568  history
+</pre>
+<p>also useful:</p>
+<ul>
+  <li><code>!!</code>: last command
+  <li><code>CTRL-r</code>: search command history
+</ul>
+     </section>
+    </div>
+    
+    
     
     
     <div class="slide normal"> 
      <header><h1>Editing files</h1></header> 
      <section class="content"> 
-     <p>You can use various editors built that typically appear on *nix systems:
+     <p>You can use various built-in editors that typically appear on *nix systems:
 </p>
  <ul>
   <li><code>vi myfile.txt</code>
@@ -678,7 +723,7 @@ If you're not familiar with vi or emacs use nano for now.  Note all the keyboard
      <section class="content"> 
      <p>
          There are two primary sources for commands run in bash: <code>help</code> and <code>man</code>. 
-         Explore them using the following commands:
+         Explore them using the following commands (don't bother reading all the text that appears):
      </p>
     <pre>
         help
@@ -747,41 +792,6 @@ echo "Hello World"
 echo "Hello World" &gt; hello_world.txt
 less hello_world.txt
 </pre>
-     </section>
-    </div>
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Save yourself some typing</h1></header> 
-     <section class="content"> 
-     <ul>
-         <li>The left/right arrow keys let you edit within a command.  CTRL-f and CTRL-b also work (forward/back).</li>
-         <li>The up/down arrow keys let you select previous commands.  CTRL-p and CTRL-n also work (previous/next).</li>
-         <li>CTRL-a goes to beginning of the line, CTRL-e to the end.</li>
-         <li>The tab auto-completes filenames.  Hit it twice for multiple results.</li>
-</ul>
-
-     </section>
-    </div>
-    
-    
-    
-    
-    <div class="slide normal"> 
-     <header><h1>Command Shortcuts</h1></header> 
-     <section class="content"> 
-     <p>use <code>history</code> to see your previous commands:</p>
-<pre>
-  564  grep 'jquery' *.txt &gt; results.txt
-  565  vi results.txt 
-  566* open -a textedit myfile.txt
-  568  history
-</pre>
-<p>also useful:</p>
-<ul>
-  <li><code>!!</code>: last command
-  <li><code>CTRL-r</code>: search command history
-</ul>
      </section>
     </div>
     
