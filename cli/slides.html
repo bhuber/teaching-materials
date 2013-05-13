@@ -688,7 +688,7 @@ If you're not familiar with vi or emacs use nano for now.  Note all the keyboard
         man man
         man which
         which ls
-        man -k dns
+        man -k ssh
     </pre>
 
     
@@ -708,8 +708,7 @@ If you're not familiar with vi or emacs use nano for now.  Note all the keyboard
 
 <p>Find the phrase "hello" in all txt files:</p>
 <pre>grep hello *.txt</pre>
-
-
+<p>Use <code>man grep</code> to get more info on how <code>grep</code> works</p>
 
      </section>
     </div>
@@ -727,6 +726,7 @@ If you're not familiar with vi or emacs use nano for now.  Note all the keyboard
 <pre>
 find . -name '*.txt' -print
 </pre>
+<p>Use <code>man find</code> to get more info on how <code>find</code> works</p>
      </section>
     </div>
     
@@ -768,11 +768,11 @@ less hello_world.txt
     
     
     <div class="slide normal"> 
-     <header><h1>command shortcuts</h1></header> 
+     <header><h1>Command Shortcuts</h1></header> 
      <section class="content"> 
      <p>use <code>history</code> to see your previous commands:</p>
 <pre>
-  564  grep 'jquery' *.txt &lt; results.txt
+  564  grep 'jquery' *.txt &gt; results.txt
   565  vi results.txt 
   566* open -a textedit myfile.txt
   568  history
@@ -787,34 +787,221 @@ less hello_world.txt
     
    
     <div class="slide normal"> 
-     <header><h1>Connecting to servers</h1></header> 
+     <header><h1>Connecting to Servers</h1></header> 
      <section class="content"> 
-     <p>You can use ssh to open terminals connected to remote servers. Try the following command:</p>
-     <pre></pre>
+     <p>You can use ssh to open terminals connected to remote servers. Try the following commands.  The first will prompt you for a password, give it 'gditest123'.</p>
+     <pre>
+     ssh gdi-test@54.245.8.241
+     whoami
+     w
+     pwd
+     </pre>
+     <p>
+     <code>ssh</code> can also be set up to use public-private key pairs instead of passwords for authentication (any github users have probably gone through this already).
+     </p>
+
      </section>
     </div>
-    
-    
-    
     
     <div class="slide normal"> 
-     <header><h1>Exercise Time!</h1></header> 
+     <header><h1>Users and Groups</h1></header> 
      <section class="content"> 
      <ul>
- <li>Navigate to your "Dropbox" or "Documents" folder, wherever you've been putting projects.
- <li>Create a new folder called "myproject".
- <li>Change to that directory.
- <li>Create a new file called "index.html".
- <li>Edit that file so it's a basic webpage with a title.
- <li>Copy a file from another project into that folder, rename it, and use it in the webpage.
- <li>Open that file in Chrome and check it works.
-</ul>
+         <li>*nix systems almost always have multiple users</li>
+         <li>
+         Groups are collections of users.  
+         Users can belong to multiple groups, and groups can have multiple users.  
+         The <code>id</code> command will tell you which groups you belong to.  Use <code>man -k group</code> to find out more.</li>
+         <li>
+         There is always a special user called &quot;root&quot;.
+         This is the administrative or super user.  
+         Root is allowed to do pretty much anything</li>
+         <li>
+         All processes - including your terminal - have a user associated with them
+         (this is what the <code>whoami</code> command displays)
+         </li>
+     </ul>
+    
+     </section>
+    </div>
 
+
+    <div class="slide normal"> 
+     <header><h1>Changing your User</h1></header> 
+     <section class="content"> 
+     <ul>
+         <li>
+         There are two main commands for running things as other users: <code>su</code> (switch user) and <code>sudo</code> (switch user - do)
+         </li>
+         <li>
+         <code>su myusername</code> starts a new terminal running as myusername (provided you know the password for that user).  <code>su</code> alone gives you a terminal as root if you know the root password.  Type <code>exit</code> to get back to your original terminal.
+        </li>
+        <li>
+            <code>sudo ...</code> runs whatever comes after it as root, 
+            provided you're allowed to use the <code>sudo</code> command (how this is determined varies based on the system).  
+            <code>sudo</code> prompts you for YOUR password (note this can be different than the root password).
+        </li>
+        <li>
+        Use <code>sudo su</code> to get a terminal as root; use <code>whoami</code> to verify it worked.
+        </li>
+        <li>
+        Be careful running things as root, *nix will generally let you do very dumb things as root without complaint (e.g. deleting the contents of /bin, removing your user from the system)
+        </li>
+     </ul>
 
      </section>
     </div>
+
+
+    <div class="slide normal"> 
+     <header><h1>Access Permissions</h1></header> 
+     <section class="content"> 
+     <p>
+     The default output for <code>ls -l</code> looks something like this:
+     </p>
+     <p>
+     <table style="font-size:75%;">
+         <thead>
+             <tr>
+                 <td>File type and access permissions</td>
+                 <td>Link count (not important)</td>
+                 <td>Owning User</td>
+                 <td>Owning Group</td>
+                 <td>Size in bytes</td>
+                 <td>Last modified date</td>
+                 <td>Name</td>
+             </tr>
+         </thead>
+         <tbody>
+             <tr>
+                 <td>-rw-rw-r--</td>
+                 <td>1</td>
+                 <td>phaedrus</td>
+                 <td>phaedrus</td>
+                 <td>27314</td>
+                 <td>May 12 21:52</td>
+                 <td>slides.html</td>
+             </tr>
+         </tbody>
+     </table>
+     </p>
+     
+     <p>
+     Every file on the system belongs to a user and a group, and has a set of access permissions which the system uses to enforce what actions different users can do.
+     </p>
     
+     </section>
+    </div>
+
+    <div class="slide normal"> 
+     <header><h1>Access Permissions (continued)</h1></header> 
+     <section class="content"> 
+     <table style="font-size:75%;">
+         <thead>
+             <tr>
+                 <td>File Type</td>
+                 <td>User permissions</td>
+                 <td>Group permissions</td>
+                 <td>World permissions</td>
+             </tr>
+         </thead>
+         <tbody>
+             <tr>
+                 <td>-</td>
+                 <td>rw-</td>
+                 <td>rw-</td>
+                 <td>r--</td>
+             </tr>
+         </tbody>
+     </table>
+     
+     <ul>
+         <li>
+             There are several different possible values for file types,
+             but the only two we care about are &quot;-&quot; for normal files and &quot;d&quot; for directories
+             (note the . and .. entries in <code>ls -al</code> are always of type &quot;d&quot;
+         </li>
+         <li>
+             There are three types of permissions: read (r), write (w), execute (x).
+             These mean different things for files vs directories.
+         </li>
+         <li>
+             There are three sets of rwx permissions for each file: User, Group, and World.
+             User permissions apply if you're the file's owner, group permissions apply if you belong to the owning group,
+             and world permissions apply otherwise.
+         </li>
+         <li>Permissions are NOT inherited</li>
+     </ul>
+    
+     </section>
+    </div>
+
+
+
+    <div class="slide normal"> 
+     <header><h1>Changing Access Permissions</h1></header> 
+     <section class="content"> 
+     <ul>
+         <li>
+             There are three main commands for changing file access permissions:
+             <code>chown</code> (change owner), <code>chgrp</code> (change group), and <code>chmod</code> (change mode)
+         </li>
+         <li><code>chown someuser somefile</code> - Changes a file's owner</li>
+         <li><code>chgrp somegroup somefile</code> - Changes a file's group</li>
+         <li>
+            <code>chmod [u | g | o | a][+ | -][r | w | x] somefile</code> - Add/remove permissions for somefile.
+            u is for user (the file's owner), g is for group, o is for everyone else, a is for all.  
+            + adds the permission, - removes it.
+        </li>
+         <li>Example: <code>chmod g-x somefile</code> removes the group execute permission for somefile, <code>chmod a+r somefile</code> makes somefile readable by everyone.</li>
+     </ul>
    
+     </section>
+    </div>
+
+    <div class="slide normal"> 
+     <header><h1>Exercise</h1></header> 
+     <section class="content"> 
+     <ul>
+        <li>
+            Use <code>sudo</code> and/or <code>su</code> to make a file owned by root
+        </li>
+        <li>
+            Make the file only readable by the root user and nobody else
+        </li>
+        <li>
+            Try to read the file as your regular user
+        </li>
+        <li>
+            Change the file's owner and group to your regular user (same owner/group as the . directory)
+        </li>
+    </ul>
+     </section>
+    </div>
+
+    <div class="slide normal"> 
+     <header><h1>Further Resources</h1></header> 
+     <section class="content"> 
+     <ul>
+         <li>
+             Linux Man pages (remember the <code>man</code> command?).  <code>man bash</code> will get you pretty far...
+         </li>
+         <li>
+             Bash Beginner's Guide - <a href="http://www.tldp.org/LDP/Bash-Beginners-Guide/html/index.html">http://www.tldp.org/LDP/Bash-Beginners-Guide/html/index.html</a>
+         </li>
+         <li>
+             Bash Advanced Scripting Guide - <a href="http://tldp.org/LDP/abs/html/">http://tldp.org/LDP/abs/html/</a>
+         </li>
+         <li>
+            Google
+         </li>
+         <li>
+            Amazon EC2 - Free public Linux server
+         </li>
+     </ul>
+     </section>
+    </div>
+
    </div>
    
   </div>
