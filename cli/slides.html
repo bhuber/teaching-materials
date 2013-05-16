@@ -448,11 +448,7 @@ header h1 {
       
       </section>
     </div>
-    
-    
-   
-    
-    
+
     
     <div class="slide normal"> 
      <header><h1>Shells</h1></header> 
@@ -463,10 +459,6 @@ header h1 {
         <p>On Mac, use a shell via the "Terminal" app.</p>
      </section>
     </div>
-    
-   
-    
-    
     
     <div class="slide normal"> 
      <header><h1>Shell prompt</h1></header> 
@@ -507,20 +499,23 @@ header h1 {
      <header><h1>File Paths</h1></header> 
      <section class="content"> 
      <p>A sequence of nested directories with a file or directory at the end, separated by "/":</p>
-<ul>
-    <li>Relative - pretend whatever <code>pwd</code> prints comes in front:
-<code>documents/fun/microsoft_jokes.html</code>
-  <li>Absolute - always starts at the top, or &quot;Root&quot; of the file system:
-<code>/usr/bin/local</code>
-  <li>Root: 
-<code>/</code>
-</ul>
-<p>Shortcuts:</p>
-<ul>
-  <li>Current directory: <code>.</code>
-  <li>Parent directory: <code>..</code>
-  <li>Home directory: <code>~</code>
-</ul>
+        <ul>
+          <li>Relative - pretend whatever <code>pwd</code> prints comes in front:
+            <code>documents/fun/microsoft_jokes.html</code>
+          </li>
+          <li>Absolute - always starts at the top, or "Root" of the file system:
+            <code>/usr/bin/local</code>
+          </li>
+          <li>Root: 
+            <code>/</code>
+          </li>
+        </ul>
+        <p>Shortcuts:</p>
+        <ul>
+          <li>Current directory: <code>.</code>
+          <li>Parent directory: <code>..</code>
+          <li>Home directory: <code>~</code>
+        </ul>
      </section>
     </div>
     
@@ -529,12 +524,12 @@ header h1 {
      <header><h1>Change directory</h1></header> 
      <section class="content"> 
      <p>Use the <code>cd</code> command to change directories:</p>
-<pre>
-cd mydirectory/
-</pre>
-<pre>
-cd ../
-</pre>
+        <pre>
+        cd mydirectory/
+        </pre>
+        <pre>
+        cd ../
+        </pre>
      </section>
     </div>
     
@@ -543,24 +538,21 @@ cd ../
      <header><h1>List directory</h1></header> 
      <section class="content"> 
      <p>Use the <code>ls</code> command to list the contents of a directory:</p>
-<pre>
-username@hostname: ls
-mydir/
-myfile.txt
-</pre>
-<p>For more details, use <code>-l</code>, and to see hidden files, use <code-a</code>:
-<pre>
-username@hostname: ls -al
--rw-r--r--    16 bhuber  staff      544 19 Mar 11:40 .dropbox
-drwxr-xr-x    16 bhuber  staff      544 19 Mar 11:40 mydir/
--rw-r--r--    16 bhuber  staff      544 19 Mar 11:40 myfile.txt
-</pre>
+        <pre>
+        username@hostname: ls
+        mydir/
+        myfile.txt
+        </pre>
+        <p>For more details, use <code>-l</code>, and to see hidden files, use <code-a</code>:
+        <pre>
+        username@hostname: ls -al
+        -rw-r--r--    16 bhuber  staff      544 19 Mar 11:40 .dropbox
+        drwxr-xr-x    16 bhuber  staff      544 19 Mar 11:40 mydir/
+        -rw-r--r--    16 bhuber  staff      544 19 Mar 11:40 myfile.txt
+        </pre>
 
      </section>
     </div>
-    
-   
-    
     
     
     <div class="slide normal"> 
@@ -576,72 +568,58 @@ drwxr-xr-x    16 bhuber  staff      544 19 Mar 11:40 mydir/
          </li>
     </ul>
 
-<p>Examples:
-<pre>
-README   .bashrc   index.html    index.html.old    
+        <p>Examples:
+        <pre>
+        README   .bashrc   index.html    index.html.old    
 
-&quot;Bugs List.txt&quot;
-</pre>
-</p>
+        "Bugs List.txt"
+        </pre>
+        </p>
      </section>
     </div>
-    
-   
-    
-    
-    
+
     <div class="slide normal"> 
      <header><h1>Making and deleting directories</h1></header> 
      <section class="content"> 
      <p>To make a new directory, use the <code>mkdir</code> command:</p>
-<pre>
-mkdir myproject
-</pre>
-<p>To remove a (empty) directory, use the <code>rmdir</code> command:</p>
-<pre>
-rmdir myproject
-</pre>
+        <pre>
+        mkdir myproject
+        </pre>
+     <p>To remove a (empty) directory, use the <code>rmdir</code> command:</p>
+        <pre>
+        rmdir myproject
+        </pre>
      </section>
     </div>
-    
-   
-    
     
     
     <div class="slide normal"> 
      <header><h1>Filesystem structure</h1></header> 
      <section class="content"> 
      <p>Varies from system, but some common folders:</p>
-<ul>
-  <li><code>/bin</code>: Basic commands
-  <li><code>/etc</code>: System config files
-  <li><code>/tmp</code>: Temporary files
-  <li><code>/usr</code>: Regular user tools
-  <li><code>/usr/local</code>: Installed user software
-  <li><code>/var</code>: Data used by system
-</ul>
-
+        <ul>
+          <li><code>/bin</code>: Basic commands
+          <li><code>/etc</code>: System config files
+          <li><code>/tmp</code>: Temporary files
+          <li><code>/usr</code>: Regular user tools
+          <li><code>/usr/local</code>: Installed user software
+          <li><code>/var</code>: Data used by system
+        </ul>
      </section>
     </div>
-    
-   
-    
-    
+
     
     <div class="slide normal"> 
      <header><h1>Working with files</h1></header> 
      <section class="content"> 
-     <p>To make a file, use the <code>touch</code> command:</p>
-<pre>touch newfile.txt</pre>
-     <p>To move or copy a file, use the <code>mv</code> and <code>cp</code> commands:</p>
-<pre>cp newfile.txt newerfile.txt</pre>
-     <p>To remove a file, use the <code>rm</code> command:</p>
-<pre>rm newerfile.txt</pre>
-
+         <p>To make a file, use the <code>touch</code> command:</p>
+            <pre>touch newfile.txt</pre>
+         <p>To move or copy a file, use the <code>mv</code> and <code>cp</code> commands:</p>
+            <pre>cp newfile.txt newerfile.txt</pre>
+         <p>To remove a file, use the <code>rm</code> command:</p>
+            <pre>rm newerfile.txt</pre>
      </section>
     </div>
-    
-   
     
     <div class="slide normal"> 
      <header><h1>Save yourself some typing</h1></header> 
@@ -652,65 +630,55 @@ rmdir myproject
          <li>CTRL-a goes to beginning of the line, CTRL-e to the end.</li>
          <li>TAB auto-completes filenames.  Hit it twice for multiple results.</li>
          <li>DELETE or CTRL-d deletes the character to the right of the cursor</li>
-</ul>
-
+     </ul>
      </section>
     </div>
-    
-    
     
     
     <div class="slide normal"> 
      <header><h1>Command Shortcuts</h1></header> 
      <section class="content"> 
      <p>use <code>history</code> to see your previous commands:</p>
-<pre>
-  564  grep 'jquery' *.txt &gt; results.txt
-  565  vi results.txt 
-  566* open -a textedit myfile.txt
-  568  history
-</pre>
-<p>also useful:</p>
-<ul>
-  <li><code>!!</code>: last command
-  <li><code>CTRL-r</code>: search command history
-</ul>
+        <pre>
+          564  grep 'jquery' *.txt &gt; results.txt
+          565  vi results.txt 
+          566* open -a textedit myfile.txt
+          568  history
+        </pre>
+        <p>also useful:</p>
+        <ul>
+          <li><code>!!</code>: last command
+          <li><code>CTRL-r</code>: search command history
+        </ul>
      </section>
     </div>
-    
-    
     
     
     <div class="slide normal"> 
      <header><h1>Editing files</h1></header> 
      <section class="content"> 
-     <p>You can use various built-in editors that typically appear on *nix systems:
-</p>
- <ul>
-  <li><code>vi myfile.txt</code>
-  <li><code>emacs myfile.txt</code>
-  <li><code>nano myfile.txt</code>
-</ul>
-<p>
-If you're not familiar with vi or emacs use nano for now.  Note all the keyboard shortcuts are at the bottom of the screen and ^ stands for Control.
+     <p>You can use various built-in editors that typically appear on *nix systems:</p>
+         <ul>
+          <li><code>vi myfile.txt</code>
+          <li><code>emacs myfile.txt</code>
+          <li><code>nano myfile.txt</code>
+        </ul>
+        <p>
+        If you're not familiar with vi or emacs use nano for now.  Note all the keyboard shortcuts are at the bottom of the screen and ^ stands for Control.
      </section>
     </div>
-    
-   
-    
-    
     
     <div class="slide normal"> 
      <header><h1>Viewing files</h1></header> 
      <section class="content"> 
      <p>You can view files in an editor, or for read-only viewing, try:
-</p>
-<ul>
-  <li><code>cat myfile.txt</code>
-  <li><code>less myfile.txt</code>
-</ul>
-<p>You can pass multiple files into any of them:</p>
-<pre>cat myfile.txt myfile2.txt myfile3.txt</pre>
+        </p>
+        <ul>
+          <li><code>cat myfile.txt</code>
+          <li><code>less myfile.txt</code>
+        </ul>
+        <p>You can pass multiple files into any of them:</p>
+        <pre>cat myfile.txt myfile2.txt myfile3.txt</pre>
 
      </section>
     </div>
@@ -768,27 +736,20 @@ If you're not familiar with vi or emacs use nano for now.  Note all the keyboard
     
      </section>
     </div>
-    
-
 
 
     <div class="slide normal"> 
      <header><h1>Searching files</h1></header> 
      <section class="content"> 
      <p>Use the <code>grep</code> command to search in files:</p>
+        <p>Find the phrase "hello" in a specific file:</p>
+        <pre>grep hello myfile.txt</pre>
 
-<p>Find the phrase "hello" in a specific file:</p>
-<pre>grep hello myfile.txt</pre>
-
-<p>Find the phrase "hello" in all txt files:</p>
-<pre>grep hello *.txt</pre>
-<p>Use <code>man grep</code> to get more info on how <code>grep</code> works</p>
-
+        <p>Find the phrase "hello" in all txt files:</p>
+        <pre>grep hello *.txt</pre>
+        <p>Use <code>man grep</code> to get more info on how <code>grep</code> works</p>
      </section>
     </div>
-    
-   
-    
     
     
     <div class="slide normal"> 
@@ -796,31 +757,29 @@ If you're not familiar with vi or emacs use nano for now.  Note all the keyboard
      <section class="content"> 
      <p>Use the <code>find</code> command to find files according to name/metadata:</p>
 
-<p>Find all txt files under the current directory:</p>
-<pre>
-find . -name '*.txt' -print
-</pre>
-<p>Use <code>man find</code> to get more info on how <code>find</code> works</p>
+        <p>Find all txt files under the current directory:</p>
+        <pre>
+        find . -name '*.txt' -print
+        </pre>
+        <p>Use <code>man find</code> to get more info on how <code>find</code> works</p>
      </section>
     </div>
-    
-   
     
     
     <div class="slide normal"> 
      <header><h1>Redirecting output</h1></header> 
      <section class="content"> 
-     <p>By default, input comes from the screen and output goes to the screen.</p>
-<p>You can use <code>&lt;</code> and <code>&gt;</code> to redirect input/output.</p>
+        <p>By default, input comes from the screen and output goes to the screen.</p>
+        <p>You can use <code>&lt;</code> and <code>&gt;</code> to redirect input/output.</p>
 
-<p>Save results of search in a file:</p>
-<pre>
-grep hello *.txt &gt; results.txt
-less results.txt
-echo "Hello World"
-echo "Hello World" &gt; hello_world.txt
-less hello_world.txt
-</pre>
+        <p>Save results of search in a file:</p>
+        <pre>
+        grep hello *.txt &gt; results.txt
+        less results.txt
+        echo "Hello World"
+        echo "Hello World" &gt; hello_world.txt
+        less hello_world.txt
+        </pre>
      </section>
     </div>
     
@@ -1037,8 +996,19 @@ less hello_world.txt
          <li>
             Amazon EC2 - Free public Linux server
          </li>
+         <li>
+            Cheat Sheet - <a href="http://bit.ly/110kWne">http://bit.ly/110kWne</a>
      </ul>
      </section>
+    </div>
+    
+    <div class="slide normal"> 
+      <header><h1>Questions + Survey Time!</h1></header> 
+      <section class="content">
+        <h1>Questions?</h1>
+        <p>Please take the time to fill out this short survey:</p>
+        <p>http://bit.ly/10IyMMf</p>
+      </section>
     </div>
 
    </div>
